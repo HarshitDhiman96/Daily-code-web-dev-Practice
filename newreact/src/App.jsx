@@ -1,17 +1,20 @@
 
+import { createContext, useState } from 'react'
 import './App.css'
+import Child1 from './Component/Child1'
 // import { useEffect } from 'react'
-import Counter from './Component/Counter'
-import Timer from './Component/Timer'
 
+const UserContext=createContext();
 function App() {
-
+  const[names,setNames]=useState({names:"harshit dhiman"})
 return(
   <div>
-    {/* <Counter/> */}
-    <Timer/>
+    <UserContext.Provider value={names}>
+        <Child1/>
+    </UserContext.Provider>
   </div>
-)
+);
 }
 
 export default App
+export {UserContext}
